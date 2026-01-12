@@ -22,7 +22,6 @@
             line-height: 1.8;
         }
 
-        /* 导航与语言切换 */
         nav {
             position: fixed; top: 0; width: 100%;
             background: rgba(255, 255, 255, 0.95);
@@ -43,10 +42,9 @@
             position: fixed; top: 15px; right: 20px; z-index: 1001;
             padding: 8px 18px; border: 2px solid var(--gold);
             font-size: 1rem;
-            background: transparent; cursor: pointer; border-radius: 4px;
+            background: white; cursor: pointer; border-radius: 4px;
         }
 
-        /* 页面结构 */
         section { 
             display: none; padding: 120px 20px 80px; 
             max-width: 1100px; margin: 0 auto; 
@@ -55,7 +53,6 @@
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* 时间线样式 */
         .intro-box {
             background: #fff; border: 1px solid var(--gold);
             padding: 30px; margin-bottom: 40px; border-radius: 8px;
@@ -73,10 +70,7 @@
             border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
-        .stage-node h2 {
-            font-size: 2rem;
-            margin-top: 0;
-        }
+        .stage-node h2 { font-size: 2rem; margin-top: 0; }
 
         .stage-node::before {
             content: ''; position: absolute; left: -49px; top: 40px;
@@ -97,65 +91,38 @@
             width: 100%; height: 100%; object-fit: cover;
         }
 
-        .system-dropdown {
-            border: 1px solid #eee; margin-bottom: 12px; border-radius: 5px;
-        }
+        .system-dropdown { border: 1px solid #eee; margin-bottom: 12px; border-radius: 5px; }
 
         .system-label {
             background: #f8f9fa; padding: 15px 20px; cursor: pointer;
             font-weight: bold; font-size: 1.1rem; display: flex; justify-content: space-between;
         }
 
-        .system-content {
-            display: none; padding: 20px; background: #fff; border-top: 1px solid #eee;
-            font-size: 1.05rem;
-        }
+        .system-content { display: none; padding: 20px; background: #fff; border-top: 1px solid #eee; }
 
         .deep-dive-btn {
             background: var(--ink); color: white; padding: 12px 25px;
             border: none; cursor: pointer; margin-top: 20px; border-radius: 4px;
-            font-size: 1rem;
         }
 
         .deep-dive-content {
             display: none; margin-top: 20px; padding: 30px;
             background: #fdf5e6; border-left: 6px solid var(--gold); white-space: pre-line;
-            font-size: 1.1rem; color: #333;
         }
 
-        /* 时空长廊样式 */
-        .corridor-container { max-width: 900px; margin: 0 auto; }
         .game-card { background: white; padding: 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .game-card p { font-size: 1.2rem; }
-        .choice-list { margin-top: 35px; }
         .choice-btn {
             display: block; width: 100%; padding: 22px; margin-bottom: 20px;
             border: 2px solid var(--gold); background: none; cursor: pointer;
-            text-align: left; font-size: 1.1rem; border-radius: 8px; transition: 0.3s;
+            text-align: left; font-size: 1.1rem; border-radius: 8px;
         }
         .choice-btn:hover { background: var(--gold); color: white; }
-        .result-panel {
-            display: none; margin-top: 30px; padding: 30px;
-            background: #e8f5e9; border-radius: 10px; border-left: 6px solid #2e7d32;
-            font-size: 1.15rem;
-        }
+        .result-panel { display: none; margin-top: 30px; padding: 30px; background: #e8f5e9; border-radius: 10px; border-left: 6px solid #2e7d32; }
 
-        /* 画板样式 */
-        .canvas-container { text-align: center; }
-        #board {
-            background: #fff; border: 4px solid var(--ink);
-            cursor: crosshair; touch-action: none;
-            background-image: radial-gradient(#eee 1px, transparent 1px);
-            background-size: 25px 25px;
-        }
-        .canvas-tools { margin-top: 30px; display: flex; justify-content: center; gap: 30px; }
-        .btn-clear { background: #d32f2f; color: white; border: none; padding: 15px 40px; cursor: pointer; border-radius: 5px; font-size: 1.1rem; }
+        #board { background: #fff; border: 4px solid var(--ink); cursor: crosshair; touch-action: none; }
+        .btn-clear { background: #d32f2f; color: white; border: none; padding: 15px 40px; cursor: pointer; border-radius: 5px; }
 
-        .summary-box {
-            background: var(--ink); color: white; padding: 40px;
-            margin-top: 60px; border-radius: 8px; text-align: center;
-            font-size: 1.25rem;
-        }
+        .summary-box { background: var(--ink); color: white; padding: 40px; margin-top: 60px; border-radius: 8px; text-align: center; }
     </style>
 </head>
 <body>
@@ -182,13 +149,13 @@
     </section>
 
     <section id="canvas-page">
-        <div class="canvas-container">
+        <div class="canvas-container" style="text-align: center;">
             <div class="intro-box" id="canvas-task"></div>
             <div style="position: relative; display: inline-block;">
                 <canvas id="board" width="850" height="550"></canvas>
                 <div id="canvas-bg-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 240px; color: #f2f2f2; pointer-events: none; z-index: 0; user-select: none;">乐</div>
             </div>
-            <div class="canvas-tools">
+            <div class="canvas-tools" style="margin-top: 30px;">
                 <button class="btn-clear" onclick="clearCanvas()">清空画板 | Clear Board</button>
             </div>
         </div>
@@ -198,7 +165,7 @@
         const mediaAssets = [
             { img: "https://q1.itc.cn/q_70/images03/20240925/c743164515fc44159ea8bd1164568bff.jpeg", vid: "h4/video/oracl.mp4" },
             { img: "https://p9.itc.cn/images01/20210507/a8eb1cf5fd6945c6a2c39161d6c6c35f.jpeg", vid: "h4/video/jw.mp4" },
-            { img: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage109.360doc.com%2FDownloadImg%2F2023%2F11%2F1418%2F275334642_9_20231114064759993.jpeg&refer=http%3A%2F%2Fimage109.360doc.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1770741343&t=fd4315b142443807c49f42ea124c5155", vid: "h4/video/wyw.mp4" },
+            { img: "https://via.placeholder.com/400x225?text=WYW+Image", vid: "h4/video/wyw.mp4" },
             { img: "https://zhuanti.mct.gov.cn/Uploads/Picture/2022/09/21/u632ab969a3373.jpg", vid: "h4/video/bhw.mp4" },
             { img: "https://img2.baidu.com/it/u=1136296859,4135464294&fm=253&app=138&f=JPEG?w=500&h=707", vid: "h4/video/xdhz.mp4" }
         ];
@@ -280,8 +247,8 @@
                     { loc: "📍 第一站：商朝·占卜密室", scene: "祭司要在龟甲上记录一场决定生死的大雨，但刻刀钝了，时间紧迫！", options: [{ t: "选项 A： 坚持画一幅精美的“下雨图”。", res: "（后果：时间耗尽，记录失败！）" }, { t: "选项 B： 放弃画画，只用几条简单的折线代表雨点。", res: "（后果：解锁甲骨文，效率翻倍！）" }], interact: "【互动任务】写：请全场观众用手指在掌心快速“刻”出一个你认为最简单的“雨”字。" },
                     { loc: "📍 第二站：周朝·青铜禁区", scene: "国王要把你的名字铸在千斤重的宝鼎上，但金属液快凝固了。", options: [{ t: "选项 A： 把字写得细长尖锐。", res: "（后果：字太细，金属流不进去！）" }, { t: "选项 B： 把字写得圆润、粗壮、稳重。", res: "（后果：金文诞生，万世流传！）" }], interact: "【互动任务】说：选 B 后，请全场齐声喊出这个鼎的名字：“一言九鼎！”" },
                     { loc: "📍 第三站：秦汉·竹简迷宫", scene: "边境急报！你只有一小块竹简，却要汇报：“敌人很多，我们没粮食了，快点派兵救命！”", options: [{ t: "选项 A： 照实写，把这几十个字全刻上去。", res: "（后果：竹简刻爆了，城破了！）" }, { t: "选项 B： 启动“极简模式”，用文言文浓缩。", res: "（后果：文言文诞生，情报传达！）" }], interact: "【互动任务】说：挑战 3 个词翻译急报。" },
-                    { loc: "📍 第四站：民国·街头讲坛", scene: "你在街头演讲，要让不识字的卖报小哥听懂什么是“民主”。", options: [{ t: "选项 A：夫文字者，文明之母...", res: "（后果： 卖报小哥挠挠头走开了。唤醒失败！）" }, { t: "选项 B：各位兄弟！我们要说自己的话！", res: "（后果： 全场欢呼，运动点燃！）" }], interact: "" },
-                    { loc: "📍 第五站：现代·数字荒原", scene: "2050 年。汉字面临信息爆炸。你的任务是确保汉字在未来的生命力。", options: [{ t: "选项 A：保持原始形态，拒绝简化。", res: "（后果： 汉字成为小众“博物馆文字”。）" }, { t: "选项 B：吸收创意，融合数字符号。", res: "（后果： 汉字成为星际流行的最强语言！）" }], interact: "" }
+                    { loc: "📍 第四站：民国·街头讲坛", scene: "你在街头演讲，要让不识字的卖报小哥听懂什么是“民主”。", options: [{ t: "选项 A：夫文字者，文明之母...", res: "（后果： 卖报小哥挠挠头走开了。唤醒失败！）" }, { t: "选项 B：各位兄弟！我们要说自己的话！", res: "（后果： 全场欢呼，运动点燃！）" }], interact: "【互动任务】现场模拟一次白话号召。" },
+                    { loc: "📍 第五站：现代·数字荒原", scene: "2050 年。汉字面临信息爆炸。你的任务是确保汉字在未来的生命力。", options: [{ t: "选项 A：保持原始形态，拒绝简化。", res: "（后果： 汉字成为小众“博物馆文字”。）" }, { t: "选项 B：吸收创意，融合数字符号。", res: "（后果： 汉字成为星际流行的最强语言！）" }], interact: "【互动任务】构思一个属于未来的数字汉字。" }
                 ]
             },
             en: {
@@ -330,8 +297,8 @@
                     { loc: "📍 Station 1: Shang Chamber", scene: "Record a storm on bone, but the knife is dull!", options: [{ t: "Option A: Draw elaborate picture.", res: "(Failed: Time out!)" }, { t: "Option B: Use simple lines.", res: "(Success: Efficiency doubled!)" }], interact: "[Task] Trace a simple 'Rain' on your palm." },
                     { loc: "📍 Station 2: Western Zhou", scene: "Cast your name on a vessel before the metal sets!", options: [{ t: "Option A: Write it thin and sharp.", res: "(Failed: Metal won't flow!)" }, { t: "Option B: Write it thick and rounded.", res: "(Success: Bronze script born!)" }], interact: "[Task] Shout: 'Yi Yan Jiu Ding'!" },
                     { loc: "📍 Station 3: Bamboo Slips", scene: "Report an emergency with limited space!", options: [{ t: "Option A: Write the full long report.", res: "(Failed: Slip broke!)" }, { t: "Option B: Use Minimalist mode.", res: "(Success: Report sent!)" }], interact: "[Challenge] 3 words to translate the report" },
-                    { loc: "📍 Station 4: Street Stand", scene: "Explain democracy to a paperboy!", options: [{ t: "Option A: [Archaic] Civilized mother...", res: "(Failed: He walks away.)" }, { t: "Option B: [Vernacular] Fellow brothers!", res: "(Success: Movement starts!)" }], interact: "" },
-                    { loc: "📍 Station 5: Digital Future", scene: "2050. Ensure the survival of characters.", options: [{ t: "Option A: [Traditional] No changes allowed.", res: "(Failed: Becomes a museum language.)" }, { t: "Option B: [Evolution] Embrace digital symbols.", res: "(Success: Interstellar popularity!)" }], interact: "" }
+                    { loc: "📍 Station 4: Street Stand", scene: "Explain democracy to a paperboy!", options: [{ t: "Option A: [Archaic] Civilized mother...", res: "(Failed: He walks away.)" }, { t: "Option B: [Vernacular] Fellow brothers!", res: "(Success: Movement starts!)" }], interact: "Simulate a call for reform." },
+                    { loc: "📍 Station 5: Digital Future", scene: "2050. Ensure the survival of characters.", options: [{ t: "Option A: [Traditional] No changes allowed.", res: "(Failed: Becomes a museum language.)" }, { t: "Option B: [Evolution] Embrace digital symbols.", res: "(Success: Interstellar popularity!)" }], interact: "Design a futuristic digital character." }
                 ]
             }
         };
@@ -353,7 +320,7 @@
             const d = DATA[lang];
             document.getElementById('main-intro').innerText = d.intro;
             document.getElementById('final-summary').innerText = d.summary;
-           
+            
             let timelineHtml = '';
             d.stages.forEach((s, idx) => {
                 let systemHtml = '';
@@ -366,10 +333,6 @@
                     `;
                 }
 
-                // 核心修改点：
-                // 1. 在视频路径后添加 #t=0.001 以获取第一帧。
-                // 2. 移除 poster 属性，利用浏览器首帧渲染。
-                // 3. 添加 preload="metadata" 确保加载路径。
                 const mediaHtml = `
                     <div class="media-area">
                         <div class="media-item">
@@ -406,8 +369,9 @@
 
         function toggleSystem(el) {
             const content = el.nextElementSibling;
-            content.style.display = content.style.display === 'block' ? 'none' : 'block';
-            el.querySelector('span').innerText = content.style.display === 'block' ? '-' : '+';
+            const isVisible = content.style.display === 'block';
+            content.style.display = isVisible ? 'none' : 'block';
+            el.querySelector('span').innerText = isVisible ? '+' : '-';
         }
 
         function toggleDeep(btn) {
@@ -425,7 +389,7 @@
                     ${g.options.map((o, i) => `<button class="choice-btn" onclick="showGameRes(${step}, ${i})">${o.t}</button>`).join('')}
                 </div>
                 <div id="res-${step}" class="result-panel"></div>
-                ${step < 4 ? `<button id="next-btn" style="display:none; margin-top:20px; padding:12px 25px; cursor:pointer; font-size:1rem;" onclick="renderGame(${step+1})">${lang==='zh'?'前往下一站':'Next Station'}</button>` : ''}
+                ${step < 4 ? `<button id="next-btn" style="display:none; margin-top:20px; padding:12px 25px; cursor:pointer; font-size:1rem; background: var(--gold); border: none; color: white; border-radius: 4px;" onclick="renderGame(${step+1})">${lang==='zh'?'前往下一站':'Next Station'}</button>` : ''}
             `;
             document.getElementById('game-content').innerHTML = html;
         }
@@ -445,31 +409,13 @@
             canvas = document.getElementById('board');
             ctx = canvas.getContext('2d');
             ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.strokeStyle = '#1a1a1a';
-            canvas.addEventListener('mousedown', start);
-            canvas.addEventListener('mousemove', draw);
-            canvas.addEventListener('mouseup', stop);
-            canvas.addEventListener('touchstart', (e) => { start(e.touches[0]); e.preventDefault(); });
-            canvas.addEventListener('touchmove', (e) => { draw(e.touches[0]); e.preventDefault(); });
-            canvas.addEventListener('touchend', stop);
-        }
-        function start(e) { isDrawing = true; draw(e); }
-        function stop() { isDrawing = false; ctx.beginPath(); }
-        function draw(e) {
-            if(!isDrawing) return;
-            const rect = canvas.getBoundingClientRect();
-            ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-            ctx.stroke(); ctx.beginPath(); ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+            canvas.onmousedown = (e) => { isDrawing = true; ctx.beginPath(); ctx.moveTo(e.offsetX, e.offsetY); };
+            canvas.onmousemove = (e) => { if(isDrawing) { ctx.lineTo(e.offsetX, e.offsetY); ctx.stroke(); } };
+            window.onmouseup = () => { isDrawing = false; };
         }
         function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); }
 
-        renderAll();
+        window.onload = renderAll;
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
